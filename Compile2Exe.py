@@ -1,9 +1,8 @@
-import sys
 from cx_Freeze import setup, Executable
 
-setup(
-    build_exe_options = {'packages': ['dbm']}
-    name = "Spaceship Sim",
-    version = "1.0",
-    description = "A spaceship simulator game.",
-    executables = [Executable("SpaceshipSim.py", base = "Console")])
+build_exe_options = {'packages': ['dbm']}
+setup(name='SpaceshipSim',
+      version='1.0',
+      options = {"build_exe": build_exe_options},
+      description='A Spaceship Sim Game',
+      executables = [Executable("SpaceshipSim.py")])
