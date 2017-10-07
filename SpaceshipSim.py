@@ -39,7 +39,7 @@ fuelscoop = 0
 hyperdrive = 0 
 inertiadrive = 0
 railgunammo = 0
-lasers = 0
+shields = 0
 cargousage = 0
 cargospace = 500
 shiptype = "Frontier Corp Shuttle"
@@ -47,7 +47,7 @@ hull = 100
 hullcap = 100
 docked = "No"
 cash = 1000
-fuel = 50001
+fuel = 5000
 fuelcap = 5000
 star = "Sol"
 planet = "Earth"
@@ -119,6 +119,7 @@ def run():
    global liqcargo
    global piratechance
    global cargo
+   global shields
    commandline = input("> ")
    if commandline == "HELP":
        print("---HELP MENU---")
