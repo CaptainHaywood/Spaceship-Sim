@@ -38,7 +38,7 @@ liqcargo = 0
 fuelscoop = 0
 hyperdrive = 0 
 inertiadrive = 0
-railgunammo = 0
+railgunammo = 10
 shields = 0
 cargousage = 0
 cargospace = 500
@@ -136,8 +136,7 @@ def run():
    elif commandline == "DATA":
       print("1 Market prices by system")
       print("2 Ships and Ship Upgrades")
-      print("3 Technology")
-      print("4 Quit")
+      print("3 Quit")
       data = input("> ")
       if data == "1":
          print ("---SOL---")
@@ -192,14 +191,32 @@ def run():
          run()
       elif data == "2":
          print("--Far Horizons Long-Range Craft--")
-         
+         print ("Hull: 250")
+         print ("Fuel Cap: 10000")
+         print ("Cargo Space: 1000")
+         print ("Cost: 500000 CR")
          print("--Tradesman Cargo Freighter--")
-         
+         print ("Hull: 250")
+         print ("Fuel Cap: 7500")
+         print ("Cargo Space: 10000")
+         print ("Cost: 750000 CR")
          print("--Nucleonus Combat Fighter--")
-         
+         print ("Hull: 500")
+         print ("Fuel Cap: 600")
+         print ("Cargo Space: 250")
+         print ("Cost: 250000 CR")
          print("--Frontier Corp Shuttle--")
-
+         print ("Hull: 100")
+         print ("Fuel Cap: 1000")
+         print ("Cargo Space: 500")
+         print ("Cost: 100000 CR")
          run()
+      elif data == "3":
+         run()
+      else:
+         print ("INVALID OPTION. RESETTING...")
+         run()
+         
    elif commandline == "2056":
       if planet != "Haywood's Claim":
          print("INVALID OPTION. RESETTING...")
@@ -261,7 +278,7 @@ def run():
       shelfFile['hullcapVariable'] = hullcap
       shelfFile['stationVariable'] = station
       shelfFile['dockedVariable'] = docked
-      shelfFile['shieldsVariable'] = shields
+      shelfFile['ammoVariable'] = railgunammo
       shelfFile['cargospaceVariable'] = cargospace
       shelfFile['cargousageVariable'] = cargousage
       shelfFile['shipVariable'] = shiptype
@@ -286,7 +303,7 @@ def run():
       hullcap = shelfFile ['hullcapVariable']
       station = shelfFile ['stationVariable']
       docked = shelfFile ['dockedVariable']
-      shields = shelfFile ['shieldsVariable']
+      railgunammo = shelfFile ['ammoVariable']
       cargospace = shelfFile ['cargospaceVariable']
       cargousage = shelfFile ['cargousageVariable']
       shiptype = shelfFile ['shipVariable']
@@ -1181,11 +1198,11 @@ def market():
               market()
               
    elif buysell == "1":
-           print ("1 Life Support Package (", lifeworth,"CR)")
-           print ("2 Consumer Goods (", conworth,"CR")
-           print ("3 Industrial Goods (", indworth,"CR")
-           print ("4 Luxury Goods (", luxworth,"CR")
-           print ("5 Liquor (", liqworth,"CR")
+           print ("1 Life Support Package ", lifeworth,"CR)")
+           print ("2 Consumer Goods ", conworth,"CR")
+           print ("3 Industrial Goods ", indworth,"CR")
+           print ("4 Luxury Goods ", luxworth,"CR")
+           print ("5 Liquor ", liqworth,"CR")
            print ("6 Cancel")
            market = input("> ")
            if market == "1":
@@ -1298,7 +1315,7 @@ def battle():
         computer_health = randrange(0, 250)
         winner = None
         player_health = hull
-        music = randrange(0, 3)
+        music = randrange(1, 3)
         if music == 1:
          mixer.init()
          mixer.music.load('battle1.mp3')
@@ -1308,9 +1325,9 @@ def battle():
          mixer.music.load('battle2.mp3')
          mixer.music.play()
         elif music == 3:
-           mixer.init()
-           mixer.music.load('battle3.mp3')
-           mixer.music.play()
+         mixer.init()
+         mixer.music.load('battle3.mp3')
+         mixer.music.play()
         turn = random.randint(1,2) 
         if turn == 1:
             player_turn = True
@@ -1322,7 +1339,7 @@ def battle():
             print("Enemy will go first.")
 
 
-        print("\nYour hull: ", player_health, "Enemy hull: ", computer_health)
+        print("\nYour hull: ", player_health, "Enemy hull: ", computer_health, "Railgun slugs: ", railgunammo)
 
         while (player_health != 0 or computer_health != 0):
 
@@ -1353,7 +1370,13 @@ def battle():
                         player_move = moves["Laser"]
                         print("\nYou fired the Laser. It dealt ", player_move, " hull damage.")
                     elif player_move in ("2", "railgun"):
+                       if railgunammo == 0:
+                          print ("Out of railgun slugs!")
+                          player_move = moves["Laser"]
+                          print("\nYou fired the Laser. It dealt ", player_move, " hull damage.")
+                       else:
                         player_move = moves["Railgun"]
+                        railgunammo = railgunammo - 1
                         print("\nYou fired the Railgun. It dealt ", player_move, " hull damage.")
                     elif player_move in ("3", "repair"):
                         heal_up = True 
@@ -1429,7 +1452,7 @@ def battle():
                         winner = "Enemy"
                         break
 
-            print("\nYour hull: ", player_health, "Enemy hull: ", computer_health)
+            print("\nYour hull: ", player_health, "Enemy hull: ", computer_health, "Railgun slugs:", railgunammo)
 
             # switch turns
             player_turn = not player_turn
