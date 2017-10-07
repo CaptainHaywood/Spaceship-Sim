@@ -2,6 +2,7 @@ import sys
 from cx_Freeze import setup, Executable
 
 setup(
+    build_exe_options = {'packages': ['dbm']}
     name = "Spaceship Sim",
     version = "1.0",
     description = "A spaceship simulator game.",
