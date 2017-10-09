@@ -129,10 +129,14 @@ def run():
        print("LINK - Access station services and facilites, if docked.")
        print("STATUS - Displays current status.")
        print("DATA - Display encylopedia of commonly needed facts.")
+       print("SIM - Launch a simulated battle.")
        print("SAVE - Save current system data.")
        print("LOAD - Load saved system data.")
        print("SHUTDOWN - Shutdown the system.")
        run()
+   elif commandline == "SIM":
+      print ("Simulation engaged!")
+      sim()
    elif commandline == "DATA":
       print("1 Market prices by system")
       print("2 Ships and Ship Upgrades")
@@ -459,7 +463,7 @@ def run():
      docked = "Yes"
      run()
    elif commandline == "LINK":
-     elif docked == "No":
+     if docked == "No":
         print ("Not docked!")
         run()
      print ("---LINK---")
@@ -1068,6 +1072,9 @@ def run():
        else:
          print ("INVALID OPTION. RESETTING...")
          run()
+   else:
+      print ("INVALID OPTION. RESETTING...")
+      run()
 def market():
    global cash
    global cargospace
@@ -1305,7 +1312,168 @@ def market():
            else:
                print("Not a valid choice! Going back to select...")
                market()
+def sim():
+        global hull
+        global simhull
+        computer_health = randrange(0, 250)
+        winner = None
+        simhull = hull
+        player_health = simhull
+        music = randrange(1, 3)
+        if music == 1:
+         mixer.init()
+         mixer.music.load('battle1.mp3')
+         mixer.music.play()
+        elif music == 2:
+         mixer.init()
+         mixer.music.load('battle2.mp3')
+         mixer.music.play()
+        elif music == 3:
+         mixer.init()
+         mixer.music.load('battle3.mp3')
+         mixer.music.play()
+        turn = random.randint(1,2) 
+        if turn == 1:
+            player_turn = True
+            computer_turn = False
+            print("You will go first.")
+        else:
+            player_turn = False
+            computer_turn = True
+            print("Enemy will go first.")
 
+
+        print("\nYour hull: ", player_health, "Enemy hull: ", computer_health)
+
+        while (player_health != 0 or computer_health != 0):
+
+            heal_up = False 
+            miss = False 
+
+           
+            moves = {"Laser": random.randint(5, 15),
+                     "Railgun": random.randint(30, 50),
+                     "Repair": random.randint(15, 25)}
+
+            if player_turn:
+                print("\nPlease select a move:\n1. Laser (Deal damage between 5-15)\n2. Railgun - USES SLUG AMMO (Deal damage between 30-50)\n3. Repair (Restore between 15-25 hull)\n")
+
+                player_move = input("> ").lower()
+
+                move_miss = random.randint(1, 10) 
+                if move_miss == 1:
+                    miss = True
+                else:
+                    miss = False
+
+                if miss:
+                    player_move = 0 
+                    print("You missed!")
+                else:
+                    if player_move in ("1", "laser"):
+                        player_move = moves["Laser"]
+                        print("\nYou fired the Laser. It dealt ", player_move, " hull damage.")
+                    elif player_move in ("2", "railgun"):
+                       if railgunammo == 0:
+                          print ("Out of railgun slugs!")
+                          player_move = moves["Laser"]
+                          print("\nYou fired the Laser. It dealt ", player_move, " hull damage.")
+                       else:
+                        player_move = moves["Railgun"]
+                        print("\nYou fired the Railgun. It dealt ", player_move, " hull damage.")
+                    elif player_move in ("3", "repair"):
+                        heal_up = True 
+                        player_move = moves["Repair"]
+                        print("\nYou activated the repair drones. They healed ", player_move, " hull damage.")
+                    else:
+                        print("\nThat is not a valid move. Please try again.")
+                        continue
+
+            else: # computer turn
+
+                move_miss = random.randint(1,5)
+                if move_miss == 1:
+                    miss = True
+                else:
+                    miss = False
+
+                if miss:
+                    computer_move = 0 
+                    print("The computer missed!")
+                else:
+                    if computer_health > 30: 
+                        if player_health > 75:
+                            computer_move = moves["Laser"]
+                            print("\nThe enemy fired his laser. It dealt ", computer_move, " hull damage.")
+                        elif player_health > 35 and player_health <= 75:
+                            imoves = ["Laser", "Railgun"]
+                            imoves = random.choice(imoves)
+                            computer_move = moves[imoves]
+                            print("\nThe enemy fired his ", imoves, ". It dealt ", computer_move, " hull damage.")
+                        elif player_health <= 35:
+                            computer_move = moves["Railgun"] 
+                            print("\nThe enemy fired his Railgun. It dealt ", computer_move, "hull damage.")                       
+                    else: 
+                        heal_or_fight = random.randint(1,2) 
+                        if heal_or_fight == 1:
+                            heal_up = True
+                            computer_move = moves["Repair"]
+                            print("\nThe enemy deployed his repair drones. It repaired ", computer_move, " hull damage.")
+                        else:
+                            if player_health > 75:
+                                computer_move = moves["Laser"]
+                                print("\nThe enemy fired his Laser. It dealt ", computer_move, " hull damage.")
+                            elif player_health > 35 and player_health <= 75:
+                                imoves = ["Laser", "Railgun"]
+                                imoves = random.choice(imoves)
+                                computer_move = moves[imoves]
+                                print("\nThe enemy fired his ", imoves, ". It dealt ", computer_move, " hull damage.")
+                            elif player_health <= 35:
+                                computer_move = moves["Railgun"] 
+                                print("\nThe enemy fired his Railgun. It dealt ", computer_move, " damage.")
+
+            if heal_up:
+                if player_turn:
+                    player_health += player_move
+                    if player_health > hull:
+                        player_health = hull 
+                else:
+                    computer_health += computer_move
+                    if computer_health > 250:
+                        computer_health = 250
+            else:
+                if player_turn:
+                    computer_health -= player_move
+
+                    if computer_health < 0:
+                        computer_health = 0 # cap minimum health at 0
+                        winner = "You"
+                        break
+                else:
+                    player_health -= computer_move
+                    if player_health < 0:
+                        player_health = 0
+                        winner = "Enemy"
+                        break
+
+            print("\nYour hull: ", player_health, "Enemy hull: ", computer_health)
+
+            # switch turns
+            player_turn = not player_turn
+            computer_turn = not computer_turn
+
+
+        if winner == "You":
+            print("\nYour health: ", player_health, "Enemy health: ", computer_health)
+            print("\nEnemy destroyed!")
+            mixer.music.stop()
+            run()
+        else:
+            print("\nYour health: ", player_health, "Enemy health: ", computer_health)
+            print("\nYou have been destroyed. GAME OVER.")
+            mixer.music.stop()
+            battlelost = input("")
+            run()
       
               
 def battle():
