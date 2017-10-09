@@ -459,9 +459,9 @@ def run():
      docked = "Yes"
      run()
    elif commandline == "LINK":
-     if docked == "No":
-       print ("Not docked!")
-       run()
+     elif docked == "No":
+        print ("Not docked!")
+        run()
      print ("---LINK---")
      print ("Linking...")
      time.sleep(2)
