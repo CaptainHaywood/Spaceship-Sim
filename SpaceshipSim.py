@@ -646,7 +646,7 @@ def run():
                 cargospace = 250
                 hull = 500
                 run()
-            else:
+         else:
              run()
    elif commandline == "NAV":
        print ("---NAVIGATION MENU---")
@@ -1064,11 +1064,10 @@ def run():
               else:
                  print ("INVALID OPTION. RESETTING...")
                  run()
-          
-   else:
-     print ("INVALID OPTION. RESETTING...")
-     run()
 
+       else:
+         print ("INVALID OPTION. RESETTING...")
+         run()
 def market():
    global cash
    global cargospace
