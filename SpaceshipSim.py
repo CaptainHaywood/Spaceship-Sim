@@ -1316,7 +1316,7 @@ def market():
 def sim():
         global hull
         global simhull
-        computer_health = randrange(0, 250)
+        computer_health = randrange(1, 250)
         winner = None
         simhull = hull
         player_health = simhull
@@ -1481,7 +1481,7 @@ def battle():
         global hull
         global railgunammo
 
-        computer_health = randrange(0, 250)
+        computer_health = randrange(1, 250)
         winner = None
         player_health = hull
         music = randrange(1, 3)
