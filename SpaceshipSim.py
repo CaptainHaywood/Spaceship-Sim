@@ -5,6 +5,7 @@ import sys
 import shelve
 import random
 from pygame import mixer
+import pygame
 from random import randrange, uniform
 import os
 global fuel
@@ -1479,6 +1480,7 @@ def sim():
 def battle():
         global hull
         global railgunammo
+
         computer_health = randrange(0, 250)
         winner = None
         player_health = hull
