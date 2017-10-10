@@ -1,5 +1,5 @@
 
-#Program 12 by James Haywood
+#Spaceship Sim by James Haywood
 import time
 import sys
 import shelve
