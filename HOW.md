@@ -96,10 +96,10 @@ Railgun slugs: 10
 ---STATUS---
 >
 ```
+
 Once you have a good idea what the STATUS command does, you should try the SIM command before you go any further - unlike Sol, there is a risk of hostilities in Barnard's Star. The SIM command launches a simulated battle on your control terminal. Here is an example encounter:
 
 ```
-> SIM
 Simulation engaged!
 Enemy will go first.
 
