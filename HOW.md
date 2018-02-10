@@ -98,5 +98,73 @@ Railgun slugs: 10
 ```
 Once you have a good idea what the STATUS command does, you should try the SIM command before you go any further - unlike Sol, there is a risk of hostilities in Barnard's Star. The SIM command launches a simulated battle on your control terminal. Here is an example encounter:
 ```
+> SIM
+Simulation engaged!
+Enemy will go first.
 
+Your hull:  100 Enemy hull:  93
+
+The enemy fired his laser. It dealt  15  hull damage.
+
+Your hull:  85 Enemy hull:  93
+
+Please select a move:
+1. Laser (Deal damage between 5-15)
+2. Railgun - USES SLUG AMMO (Deal damage between 30-50)
+3. Repair (Restore between 15-25 hull)
+
+> 2
+
+You fired the Railgun. It dealt  48  hull damage.
+
+Your hull:  85 Enemy hull:  45
+
+The enemy fired his laser. It dealt  11  hull damage.
+
+Your hull:  74 Enemy hull:  45
+
+Please select a move:
+1. Laser (Deal damage between 5-15)
+2. Railgun - USES SLUG AMMO (Deal damage between 30-50)
+3. Repair (Restore between 15-25 hull)
+
+> 2
+
+You fired the Railgun. It dealt  43  hull damage.
+
+Your hull:  74 Enemy hull:  2
+
+The enemy deployed his repair drones. It repaired  16  hull damage.
+
+Your hull:  74 Enemy hull:  18
+
+Please select a move:
+1. Laser (Deal damage between 5-15)
+2. Railgun - USES SLUG AMMO (Deal damage between 30-50)
+3. Repair (Restore between 15-25 hull)
+
+> 1
+
+You fired the Laser. It dealt  13  hull damage.
+
+Your hull:  74 Enemy hull:  5
+
+The enemy deployed his repair drones. It repaired  22  hull damage.
+
+Your hull:  74 Enemy hull:  27
+
+Please select a move:
+1. Laser (Deal damage between 5-15)
+2. Railgun - USES SLUG AMMO (Deal damage between 30-50)
+3. Repair (Restore between 15-25 hull)
+
+> 2
+
+You fired the Railgun. It dealt  37  hull damage.
+
+Your health:  74 Enemy health:  0
+
+Enemy destroyed!
+> 
 ```
+WIP
