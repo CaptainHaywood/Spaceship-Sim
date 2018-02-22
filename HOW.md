@@ -2,7 +2,7 @@
 title: How To Play
 layout: default
 ---
-Navigation ~ [Home](https://captainhaywood.github.io/Spaceship-Sim) ~ [How to Play](https://captainhaywood.github.io/Spaceship-Sim/HOW) ~ [Credits](https://captainhaywood.github.io/Spaceship-Sim/CREDITS)
+Navigation ~ [Home](https://captainhaywood.github.io/The-Seven-Suns) ~ [How to Play](https://captainhaywood.github.io/The-Seven-Suns/HOW) ~ [Credits](https://captainhaywood.github.io/The-Seven-Suns/CREDITS)
 
 # How To Play
 You start your game in orbit of Earth in the Sol system, with 1000 credits in your account. You have a small Frontier Corp Shuttle with 500 tons of cargospace and 5000 units of fuel, plus ten railgun slugs for defense. Your goal is to trade your way to the top among the seven stars that humanity has access to.
