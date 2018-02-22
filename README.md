@@ -8,7 +8,7 @@ The Seven Suns is a Python game I made over the course of about two weeks in my 
 Some features include:
 - Several handmade star systems with unique descriptions of each body, different prices for goods, and danger levels.
 - Saving and loading games
-- Random turn-based battles when travelling, against enemies with random stats, plus different moves with varying effects and ammo.
+- Random turn-based battles when travelling, against enemies with random stats, plus different moves with varying effects and ammo
 - Multiple ships (and upgrades) to purchase with different capabilites and capacities
 - Trading various goods between star systems for profit
 - Sound effects and battle music
