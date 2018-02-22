@@ -1,4 +1,4 @@
-Navigation ~ [Home](https://captainhaywood.github.io/Spaceship-Sim) ~ [How to Play](https://captainhaywood.github.io/Spaceship-Sim/HOW) ~ [Credits](https://captainhaywood.github.io/Spaceship-Sim/CREDITS)
+Navigation ~ [Home](https://captainhaywood.github.io/The-Seven-Suns) ~ [How to Play](https://captainhaywood.github.io/The-Seven-Suns/HOW) ~ [Credits](https://captainhaywood.github.io/The-Seven-Suns/CREDITS)
 
 # About
 Spaceship Sim is a Python game I made over the course of about two weeks in my school Computer Science class. It has exactly 1693 lines of code, and includes a .py file that uses cx_Freeze to create a windows executable of the game, if you so desire.
