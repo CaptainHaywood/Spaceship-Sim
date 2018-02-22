@@ -2,7 +2,7 @@
 title: Credits
 layout: default
 ---
-Navigation ~ [Home](https://captainhaywood.github.io/Spaceship-Sim) ~ [How to Play](https://captainhaywood.github.io/Spaceship-Sim/HOW) ~ [Credits](https://captainhaywood.github.io/Spaceship-Sim/CREDITS)
+Navigation ~ [Home](https://captainhaywood.github.io/The-Seven-Suns) ~ [How to Play](https://captainhaywood.github.io/The-Seven-Suns/HOW) ~ [Credits](https://captainhaywood.github.io/The-Seven-Suns/CREDITS)
 
 # Credits
 - Programmed by James Haywood
