@@ -54,14 +54,14 @@ star = "Sol"
 planet = "Earth"
 station = "Earth Starport"
 safety = "0" #Nothing can harm you when safety is 0. 3 is maximum danger
-print ("Welcome to Spaceship Sim. (C) 2017 James Haywood.")
+print ("The Seven Suns")
 print ("1 Play game")
 print ("2 Quick Introduction")
 print ("3 Credits")
 print ("4 Quit")
 startmenu = input("> ")
 if startmenu == "2":
-   print("Welcome to Spaceship Sim! It's the 24th century, the year 2350 AD. Humanity has spread to nearby stars via hyperspace gates, and now runs multiple colony worlds under the authority of the United Terran Authority. You are a random citizen who has scraped together enough cash to purchase a relatively large shuttle, and now you set off into the universe to make a profit. Meanwhile, something strange is happening at Saturn and in the Polaris system. The communications link with the team overseeing the construction of the Polaris hypergate has gone silent, and a private research station on Daphnis is showing strange energy fluctuations. What could it mean?")
+   print("In the distant future, where man can traverse the endless light-years between the seven stars of the Unified Stellar Republic in a heartbeat, you have acquired your first spacecraft. Little more than a hypergate-capable shuttle, you must trade and fight your way to the top - or die trying.  It's a harsh galaxy, where pirates roam the furthest reaches of space and no one will come to help you, even if they hear your cry.  Can you survive and thrive among The Seven Suns?")
    print("Ready to restart program?")
    restartp = input("> ")
    sys.exit()
